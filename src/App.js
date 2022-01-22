@@ -5,12 +5,11 @@ import Signup from "./components/Signup";
 import ProtectedRoute from "./components/ProtectedRoute";
 import ForgotPassword from "./components/ForgotPassword";
 import { UserAuthContextProvider } from "./contexts/AuthContext";
-import styles from "./styles/App.module.css";
 import UpdateProfile from "./components/UpdateProfile";
 
 function App() {
   return (
-    <div className={styles.container}>
+    <>
       <UserAuthContextProvider>
         <Routes>
           <Route path="/login" element={<Login />} />
@@ -34,7 +33,7 @@ function App() {
           <Route path="forgot-password" element={<ForgotPassword />} />
         </Routes>
       </UserAuthContextProvider>
-    </div>
+    </>
   );
 }
 
