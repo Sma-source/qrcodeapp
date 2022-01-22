@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function QrCard() {
   return (
@@ -44,8 +45,8 @@ function QrCard() {
           >
             scans
           </h3>
-          <a
-            href="#"
+          <Link
+            to="/details"
             className="
                      inline-block
                      mb-3
@@ -64,7 +65,7 @@ function QrCard() {
                      "
           >
             Détails
-          </a>
+          </Link>
           <a
             href="#"
             className="
