@@ -92,73 +92,73 @@ function Details() {
             </a>
           </div>
         </div>
-        <div class="flex flex-col p-10">
-          <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-            <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-              <div class="shadow overflow-hidden border-b border-gray-500 ">
-                <table class="min-w-full font-Poppins">
-                  <thead class="bg-black">
+        <div className="flex flex-col p-10">
+          <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+              <div className="shadow overflow-hidden border-b border-gray-500 ">
+                <table className="min-w-full font-Poppins">
+                  <thead className="bg-black">
                     <tr>
                       <th
                         scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider"
+                        className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider"
                       >
                         Date
                       </th>
                       <th
                         scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider"
+                        className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider"
                       >
                         Heure
                       </th>
                       <th
                         scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider"
+                        className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider"
                       >
                         Localisation
                       </th>
                       {/* <th
                         scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider"
+                        className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider"
                       >
                         Role
                       </th> */}
-                      <th scope="col" class="relative px-6 py-3"></th>
+                      <th scope="col" className="relative px-6 py-3"></th>
                     </tr>
                   </thead>
-                  <tbody class="bg-black divide-y divide-gray-500">
+                  <tbody className="bg-black divide-y divide-gray-500">
                     <tr>
-                      <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="flex items-center">
-                          <div class="ml-0">
-                            <div class="text-sm font-medium text-white">
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        <div className="flex items-center">
+                          <div className="ml-0">
+                            <div className="text-sm font-medium text-white">
                               18/01
                             </div>
                           </div>
                         </div>
                       </td>
-                      <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="text-sm text-white">16:51</div>
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        <div className="text-sm text-white">16:51</div>
                       </td>
-                      <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="text-sm text-white">Saint-Etienne</div>
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        <div className="text-sm text-white">Saint-Etienne</div>
                       </td>
                     </tr>
                     <tr>
-                      <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="flex items-center">
-                          <div class="ml-0">
-                            <div class="text-sm font-medium text-white">
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        <div className="flex items-center">
+                          <div className="ml-0">
+                            <div className="text-sm font-medium text-white">
                               18/01
                             </div>
                           </div>
                         </div>
                       </td>
-                      <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="text-sm text-white">16:51</div>
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        <div className="text-sm text-white">16:51</div>
                       </td>
-                      <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="text-sm text-white">Saint-Etienne</div>
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        <div className="text-sm text-white">Saint-Etienne</div>
                       </td>
                     </tr>
                   </tbody>
