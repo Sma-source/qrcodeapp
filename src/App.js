@@ -6,6 +6,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import ForgotPassword from "./components/ForgotPassword";
 import { UserAuthContextProvider } from "./contexts/AuthContext";
 import UpdateProfile from "./components/UpdateProfile";
+import Details from "./components/Details";
 
 function App() {
   return (
@@ -19,6 +20,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <Dashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/details"
+            element={
+              <ProtectedRoute>
+                <Details />
               </ProtectedRoute>
             }
           />
