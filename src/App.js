@@ -7,6 +7,7 @@ import ForgotPassword from "./components/ForgotPassword";
 import { UserAuthContextProvider } from "./contexts/AuthContext";
 import UpdateProfile from "./components/UpdateProfile";
 import Details from "./components/Details";
+import CreateQr from "./components/CreateQr";
 
 function App() {
   return (
@@ -28,6 +29,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <Details />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/creer-qr-code"
+            element={
+              <ProtectedRoute>
+                <CreateQr />
               </ProtectedRoute>
             }
           />
