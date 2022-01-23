@@ -1,10 +1,11 @@
 import React from "react";
 import LayoutDash from "./LayoutDash";
+import QrCardBlur from "./QrCardBlur";
 
 function CreateQr() {
   return (
     <LayoutDash>
-      <h1 className="text-white">Creat QR Code</h1>
+      <QrCardBlur />
     </LayoutDash>
   );
 }
