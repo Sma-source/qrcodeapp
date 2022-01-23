@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useUserAuth } from "../contexts/AuthContext";
 import { SidebarData } from "./SidebarData";
 import Alert from "./Alert";
@@ -55,8 +55,8 @@ function Sidebar() {
       <div
         className={
           sidebar
-            ? "bg-black w-72 absolute inset-y-0 left-0 md:relative transform  md:relative md:translate-x-0 transition duration-200 ease-in-out"
-            : "bg-black w-72 absolute inset-y-0 left-0 md:relative transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out"
+            ? "bg-black w-72 absolute inset-y-0 left-0 md:relative transform  md:relative md:translate-x-0 transition duration-200 ease-in-out z-40"
+            : "bg-black w-72 absolute inset-y-0 left-0 md:relative transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out z-40"
         }
       >
         {/* Logo */}
@@ -68,9 +68,15 @@ function Sidebar() {
         <nav className="mt-10 px-6 mx-2">
           {SidebarData.map((item, index) => {
             return (
-              <Link to={item.path} key={index}>
-                <p className={item.cName}>{item.title}</p>
-              </Link>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? `${item.cName} text-purple` : `${item.cName}`
+                }
+                to={item.path}
+                key={index}
+              >
+                {item.title}
+              </NavLink>
             );
           })}
         </nav>
