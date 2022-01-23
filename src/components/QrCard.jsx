@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function QrCard() {
   return (
-    <div className="w-1/2  md:w-full  lg:w-1/3 2xl:w-1/4 px-3">
+    <div className="w-1/2  md:w-full  lg:w-1/3 2xl:w-1/4 px-4">
       <div className="bg-black overflow-hidden mb-10 w-[150px] md:w-[300px]">
         <div className="flex justify-center mt-10">
           <img
