@@ -8,7 +8,7 @@ function QrCard() {
         <div className="flex justify-center mt-10">
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/QR_code_for_mobile_English_Wikipedia.svg/1024px-QR_code_for_mobile_English_Wikipedia.svg.png"
-            alt="image"
+            alt="logo"
             className=" w-[117px] md:w-[267px] bg-white"
           />
         </div>
