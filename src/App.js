@@ -8,6 +8,7 @@ import { UserAuthContextProvider } from "./contexts/AuthContext";
 import UpdateProfile from "./components/UpdateProfile";
 import Details from "./components/Details";
 import CreateQr from "./components/CreateQr";
+import MyAccount from "./components/MyAccount";
 
 function App() {
   return (
@@ -45,6 +46,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <UpdateProfile />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/mon-compte"
+            element={
+              <ProtectedRoute>
+                <MyAccount />
               </ProtectedRoute>
             }
           />
