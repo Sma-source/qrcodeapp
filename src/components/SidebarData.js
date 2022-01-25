@@ -13,7 +13,7 @@ export const SidebarData = [
   },
   {
     title: "Mon Compte",
-    path: "/update-profile",
+    path: "/mon-compte",
     cName:
       "block text-white font-Poppins font-semibold hover:text-purple text-sm md:text-[20px] py-2 mb-[40px] md:mx-4",
   },
