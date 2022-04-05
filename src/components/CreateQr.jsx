@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import LayoutDash from "./LayoutDash";
-import QrCardBlur from "./QrCardBlur";
+import AddQrcode from "./AddQrcode";
+import QrCardTemplate from "./QrCardTemplate";
 
 function CreateQr() {
+  const [open, setOpen] = useState(false);
+  function handleOpen() {
+    setOpen(!open);
+  }
   return (
     <LayoutDash>
-      <QrCardBlur />
+      {open ? (
+        <AddQrcode close={handleOpen} />
+      ) : (
+        <QrCardTemplate test={handleOpen} />
+      )}
     </LayoutDash>
   );
 }
