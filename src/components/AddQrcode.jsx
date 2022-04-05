@@ -1,8 +1,7 @@
 import React, { useRef, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { db } from "../firebase";
 import { collection, addDoc } from "firebase/firestore";
-import Popup from "./Popup";
 
 function QrCardBlur({ close }) {
   // import db collection from firebase
@@ -34,11 +33,6 @@ function QrCardBlur({ close }) {
       setError(error.message);
     }
   }
-
-  // const cancel = () => {
-  //   setPopupActive(!popupActive);
-  //   setShowQr(!showQr);
-  // };
 
   return (
     <>
