@@ -1,8 +1,13 @@
+import { doc } from "firebase/firestore";
 import React from "react";
 import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react/cjs/react.production.min";
+import { db } from "../firebase";
 import LayoutDash from "./LayoutDash";
 
 function Details() {
+  const { id } = useParams();
   return (
     <LayoutDash>
       <div className="container min-h-screen mx-auto my-16 p-10 bg-black xs:w-full">
