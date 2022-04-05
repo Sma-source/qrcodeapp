@@ -55,7 +55,7 @@ function MyAccount() {
                 <div className="w-full md:w-full px-3 mb-6">
                   <label
                     className="block uppercase tracking-wide text-white text-xs font-semibold mb-2"
-                    for="grid-text-1"
+                    htmlFor="grid-text-1"
                   >
                     adresse email
                   </label>
