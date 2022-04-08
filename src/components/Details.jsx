@@ -1,5 +1,5 @@
 import { doc, onSnapshot } from "firebase/firestore";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { db } from "../firebase";
@@ -9,6 +9,7 @@ import QRCode from "qrcode.react";
 function Details() {
   const [code, setCode] = useState([]);
   const { id } = useParams();
+  const qrcodeRef = useRef();
 
   useEffect(() => {
     const unsub = onSnapshot(doc(db, "testqr", id), (doc) => {
@@ -22,6 +23,29 @@ function Details() {
       unsub();
     };
   }, []);
+
+  const downloadQRCode = (qrRef) => (e) => {
+    e.preventDefault();
+
+    let canvas = qrRef.current.querySelector("svg");
+
+    // console.log(canvas);
+
+    let svgXML = new XMLSerializer().serializeToString(canvas);
+    // console.log(svgXML);
+
+    let dataUrl = "data:image/svg," + encodeURIComponent(svgXML);
+    // console.log(dataUrl);
+
+    // let image = canvas.toDataURL("image/png");
+
+    let anchor = document.createElement("a");
+    anchor.href = dataUrl;
+    anchor.download = `qr-code.svg`;
+    document.body.appendChild(anchor);
+    anchor.click();
+    document.body.removeChild(anchor);
+  };
 
   return (
     <LayoutDash>
@@ -38,16 +62,18 @@ function Details() {
                       alt="qr-code"
                       className=" w-[207px] md:w-[267px] bg-white"
                     /> */}
-                <QRCode
-                  style={{ padding: 6 + "px" }}
-                  className="qrcode w-[117px] md:w-[267px] bg-white"
-                  size={bou.size}
-                  value={bou.value}
-                  bgColor="white"
-                  fgColor="#000"
-                  level="L"
-                  renderAs="svg"
-                ></QRCode>
+                <li ref={qrcodeRef}>
+                  <QRCode
+                    style={{ padding: 6 + "px" }}
+                    className="qrcode w-[117px] md:w-[267px] bg-white"
+                    size={bou.size}
+                    value={bou.value}
+                    bgColor="white"
+                    fgColor="#000"
+                    level="L"
+                    renderAs="svg"
+                  ></QRCode>
+                </li>
 
                 <div className="flex flex-col md:w-1/2 lg:w-1/3 2xl:w-1/4 mx-4 md:p-5  text-center">
                   <p className="text-white font-bold font-Poppins  md:text-5xl  leading-relaxed mb-0">
@@ -106,8 +132,9 @@ function Details() {
                   >
                     Modifier
                   </Link>
-                  <a
-                    href="#"
+                  <button
+                    onClick={downloadQRCode(qrcodeRef)}
+                    type="submit"
                     className="
                      
                      md:w-full
@@ -128,7 +155,7 @@ function Details() {
                      "
                   >
                     Télécharger
-                  </a>
+                  </button>
                 </div>
               </div>
             );
