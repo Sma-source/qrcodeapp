@@ -1,7 +1,5 @@
 import React, { useRef } from "react";
 import QRCode from "qrcode.react";
-import { deleteDoc, doc } from "firebase/firestore";
-import { db } from "../firebase";
 import { Link } from "react-router-dom";
 
 function QrCodeCard({ item }) {
@@ -36,11 +34,6 @@ function QrCodeCard({ item }) {
     document.body.removeChild(anchor);
   };
 
-  const deleteQrcode = async (id) => {
-    const docRef = doc(db, "testqr", id);
-    await deleteDoc(docRef);
-    console.log(id);
-  };
   return (
     <div key={item.id} className="w-1/2  md:w-full  lg:w-1/3 2xl:w-1/4 px-4">
       <div className="bg-black overflow-hidden mb-10 w-[150px] md:w-[300px]">
