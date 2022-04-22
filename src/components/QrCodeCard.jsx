@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import QRCode from "qrcode.react";
 import { deleteDoc, doc } from "firebase/firestore";
 import { db } from "../firebase";
+import { Link } from "react-router-dom";
 
 function QrCodeCard({ item }) {
   // const [qrcode, setQrcode] = useState([item]);
@@ -57,8 +58,8 @@ function QrCodeCard({ item }) {
         </li>
         <div className="p-0  md:p-5  text-center">
           <h3>
-            <a
-              href="#"
+            <Link
+              to={`/details/${item.id}`}
               className="
                         font-normal
                         font-Poppins
@@ -72,7 +73,7 @@ function QrCodeCard({ item }) {
                         "
             >
               https://{item.value}
-            </a>
+            </Link>
           </h3>
           <p className="text-white font-bold font-Poppins  md:text-6xl  leading-relaxed mb-0">
             50
@@ -88,8 +89,8 @@ function QrCodeCard({ item }) {
           >
             scans
           </h3>
-          <button
-            onClick={() => deleteQrcode(item.id)}
+          <Link
+            to={`/details/${item.id}`}
             className="
                      inline-block
                      mb-3
@@ -107,8 +108,8 @@ function QrCodeCard({ item }) {
                      transition
                      "
           >
-            Supprimer
-          </button>
+            Details
+          </Link>
 
           <button
             onClick={downloadQRCode(qrRef)}
@@ -131,7 +132,7 @@ function QrCodeCard({ item }) {
                      
                      "
           >
-            Télécharger
+            Download
           </button>
         </div>
       </div>
