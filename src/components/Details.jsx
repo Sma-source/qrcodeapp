@@ -8,7 +8,6 @@ import QRCode from "qrcode.react";
 
 function Details() {
   const [code, setCode] = useState([]);
-  const [open, setOpen] = useState(false);
   const { id } = useParams();
   const qrcodeRef = useRef();
   const navigate = useNavigate();
@@ -33,23 +32,6 @@ function Details() {
       setCode(list);
     });
   };
-
-  const handlePop = () => {
-    setOpen(!open);
-  };
-
-  // const readQrById = async (id) => {
-  //   const doc = await Firestore.collection("testqr").doc(id).get();
-
-  //   const qr = {
-  //     id: doc.id,
-  //     ...doc.data(),
-  //   };
-
-  //   console.log(qr);
-
-  //   return qr;
-  // };
 
   const deleteQrcode = async (id) => {
     const docRef = doc(db, "testqr", id);
@@ -191,7 +173,7 @@ function Details() {
                       
                       "
                       >
-                        Télécharger
+                        Download
                       </button>
                     </div>
                   </div>
