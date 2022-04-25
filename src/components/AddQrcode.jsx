@@ -1,13 +1,12 @@
 import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { db } from "../firebase";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
 function QrCardBlur({ close }) {
   // import db collection from firebase
   const staticqrCollectionRef = collection(db, "testqr");
 
-  const [newSize, setNewSize] = useState(250);
   const urlRef = useRef();
   const sizeRef = useRef();
 
@@ -25,6 +24,7 @@ function QrCardBlur({ close }) {
       await addDoc(staticqrCollectionRef, {
         size: Number(sizeRef.current.value),
         value: urlRef.current.value,
+        createdAt: serverTimestamp(),
       });
       setLoading(false);
       navigate("/");
