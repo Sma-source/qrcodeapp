@@ -1,14 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { db } from "../firebase";
-import { collection, onSnapshot } from "firebase/firestore";
+import { collection, onSnapshot, query, orderBy } from "firebase/firestore";
 import QrCodeCard from "./QrCodeCard";
 
 function QrcodeList() {
   const [qrcode, setQrcode] = useState([]);
+
+  // collection ref
   const staticqrCollectionRef = collection(db, "testqr");
 
+  // queries
+  const q = query(staticqrCollectionRef, orderBy("createdAt", "desc"));
+
   useEffect(() => {
-    const unsub = onSnapshot(staticqrCollectionRef, (snapshot) => {
+    const unsub = onSnapshot(q, (snapshot) => {
       setQrcode(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     });
 
