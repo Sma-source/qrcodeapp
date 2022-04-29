@@ -2,6 +2,8 @@ import { deleteDoc, doc, onSnapshot } from "firebase/firestore";
 import React, { useEffect, useState, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { db } from "../firebase";
+import { useReactToPrint } from "react-to-print";
+
 import LayoutDash from "./LayoutDash";
 
 import QRCode from "qrcode.react";
@@ -61,6 +63,9 @@ function Details() {
     anchor.click();
     document.body.removeChild(anchor);
   };
+  const handlePrint = useReactToPrint({
+    content: () => qrcodeRef.current,
+  });
 
   return (
     <LayoutDash>
@@ -81,7 +86,7 @@ function Details() {
                     <li ref={qrcodeRef}>
                       <QRCode
                         style={{ padding: 6 + "px" }}
-                        className="qrcode w-[117px] md:w-[267px] bg-white"
+                        className="qrcode bg-white"
                         size={data.size || 250}
                         value={data.value || "default"}
                         bgColor="white"
@@ -126,17 +131,14 @@ function Details() {
                           https://{data.value}
                         </a>
                       </h3>
-
                       <button
                         disabled={loading}
-                        onClick={() => {
-                          deleteQrcode(data.id);
-                        }}
+                        onClick={() => deleteQrcode(data.id)}
                         className="
                       
-                      mb-3
+                      mb-2
                       md:w-full
-                      md:py-3
+                      md:py-2
                       md:px-10
                       bg-gris
                       border border-[#707070]
@@ -151,6 +153,7 @@ function Details() {
                       >
                         Delete
                       </button>
+
                       <button
                         onClick={downloadQRCode(qrcodeRef)}
                         type="submit"
@@ -158,9 +161,33 @@ function Details() {
                       
                       md:w-full
                       
-                      md:py-3
+                      md:py-2
                       md:px-12
                       bg-purple
+                      border border-[#707070]
+                      rounded-full
+                      text-white
+                      text-sm
+                      md:text-lg
+                      font-Poppins
+                      font-semibold
+                       mb-2
+                       md:mb-2
+                      
+                      "
+                      >
+                        Download
+                      </button>
+                      <button
+                        onClick={handlePrint}
+                        type="submit"
+                        className="
+                      
+                      md:w-full
+                      
+                      md:py-2
+                      md:px-12
+                      bg-yellow
                       border border-[#707070]
                       rounded-full
                       text-white
@@ -173,7 +200,7 @@ function Details() {
                       
                       "
                       >
-                        Download
+                        Print
                       </button>
                     </div>
                   </div>
